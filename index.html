@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Abstraction | OOP Concepts</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="#" class="logo">JAVA<span>.</span>LAB</a>
+      <nav>
+        <a href="#definition">Definition</a>
+        <a href="#types">Types</a>
+        <a href="#example">Example</a>
+        <a href="#quiz">Quiz</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">JAVA • OBJECT-ORIENTED PROGRAMMING</p>
+          <h1>
+            Understand the concept.<br />
+            <span>Hide the complexity.</span>
+          </h1>
+          <p class="hero-description">
+            Explore Java Abstraction with simple explanations, real-world
+            examples, and executable concept demonstrations.
+          </p>
+          <div class="hero-buttons">
+            <a href="#definition" class="btn primary-btn">Explore Concept ↗</a>
+            <a href="#example" class="btn outline-btn">View Java Example</a>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="abstract-card">
+            <span class="code-label">JAVA CONCEPT</span>
+            <div class="abstract-symbol">{ }</div>
+            <h2>Abstraction</h2>
+            <p>Show what matters.<br />Hide how it works.</p>
+            <div class="symbol-line"></div>
+            <span class="symbol-footer">OOP PILLAR 01</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div><strong>01</strong><span>Core concept</span></div>
+        <div><strong>02</strong><span>Implementation methods</span></div>
+        <div><strong>100%</strong><span>Beginner friendly</span></div>
+      </section>
+
+      <section class="section" id="definition">
+        <p class="eyebrow">01 — THE FOUNDATION</p>
+        <h2 class="section-title">What is Abstraction?</h2>
+        <p class="section-intro">
+          Abstraction is an OOP principle that hides implementation details and
+          exposes only the essential functionality to the user.
+        </p>
+
+        <div class="content-grid">
+          <article class="info-card">
+            <span class="card-number">01</span>
+            <h3>Hides complexity</h3>
+            <p>
+              Users can work with an object without knowing all the internal
+              steps that make it function.
+            </p>
+          </article>
+          <article class="info-card">
+            <span class="card-number">02</span>
+            <h3>Shows essential features</h3>
+            <p>
+              Only the relevant operations are exposed through a simple
+              interface.
+            </p>
+          </article>
+          <article class="info-card">
+            <span class="card-number">03</span>
+            <h3>Improves design</h3>
+            <p>
+              It helps separate what an object does from how it performs that
+              task.
+            </p>
+          </article>
+        </div>
+
+        <div class="real-example">
+          <div class="example-icon">✦</div>
+          <div>
+            <h3>Real-world example: ATM</h3>
+            <p>
+              You select Withdraw and enter an amount. You do not need to
+              understand the ATM's internal banking operations. The machine
+              exposes a simple operation and hides much of its implementation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section types-section" id="types">
+        <p class="eyebrow">02 — THE APPROACHES</p>
+        <h2 class="section-title">Types of Abstraction in Java</h2>
+
+        <div class="type-grid">
+          <article class="type-card">
+            <div class="type-top">
+              <span class="type-icon">A</span>
+              <span class="tag">ABSTRACT CLASS</span>
+            </div>
+            <h3>Abstract Class</h3>
+            <p>
+              A class declared with the <code>abstract</code> keyword. It can
+              contain abstract methods and implemented methods.
+            </p>
+            <pre><code>abstract class Shape {
+    abstract void draw();
+
+    void info() {
+        System.out.println("A shape");
+    }
+}</code></pre>
+            <p class="note">
+              Useful when related classes share common state or behavior.
+            </p>
+          </article>
+
+          <article class="type-card">
+            <div class="type-top">
+              <span class="type-icon">I</span>
+              <span class="tag">INTERFACE</span>
+            </div>
+            <h3>Interface</h3>
+            <p>
+              An interface defines a contract that implementing classes agree to
+              follow. It can also contain default, static, and private methods.
+            </p>
+            <pre><code>interface Payment {
+    void pay(double amount);
+}
+
+class UpiPayment
+        implements Payment {
+    public void pay(double amount) {
+        System.out.println("Paid");
+    }
+}</code></pre>
+            <p class="note">
+              Useful for defining capabilities that different classes can
+              implement.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="example">
+        <p class="eyebrow">03 — LEARN BY EXAMPLE</p>
+        <h2 class="section-title">Java Abstraction in Action</h2>
+        <p class="section-intro">
+          A vehicle provides a common contract. Each specific vehicle decides
+          how to start its engine.
+        </p>
+
+        <div class="code-panel">
+          <div class="code-header">
+            <div class="window-dots"><i></i><i></i><i></i></div>
+            <span>AbstractionDemo.java</span>
+            <button id="copyCode" class="copy-btn">Copy Code</button>
+          </div>
+          <pre><code id="javaCode">abstract class Vehicle {
+
+    abstract void start();
+
+    void stop() {
+        System.out.println("Vehicle stopped.");
+    }
+}
+
+class Car extends Vehicle {
+
+    @Override
+    void start() {
+        System.out.println("Car starts with a key.");
+    }
+}
+
+class Bike extends Vehicle {
+
+    @Override
+    void start() {
+        System.out.println("Bike starts with a button.");
+    }
+}
+
+public class AbstractionDemo {
+    public static void main(String[] args) {
+        Vehicle car = new Car();
+        Vehicle bike = new Bike();
+
+        car.start();
+        bike.start();
+        car.stop();
+    }
+}</code></pre>
+        </div>
+
+        <div class="explanation-grid">
+          <article class="explanation-card">
+            <span>STEP 01</span>
+            <h3>Declare</h3>
+            <p>
+              <code>abstract class Vehicle</code> creates a base class that
+              cannot be instantiated directly.
+            </p>
+          </article>
+          <article class="explanation-card">
+            <span>STEP 02</span>
+            <h3>Define</h3>
+            <p>
+              <code>abstract void start();</code> declares what must happen
+              without specifying how.
+            </p>
+          </article>
+          <article class="explanation-card">
+            <span>STEP 03</span>
+            <h3>Implement</h3>
+            <p>
+              Car and Bike provide their own implementations of the
+              <code>start()</code> method.
+            </p>
+          </article>
+        </div>
+
+        <div class="output-panel">
+          <div class="output-heading">
+            <span class="live-dot"></span>
+            Expected console output
+          </div>
+          <pre id="output">
+Car starts with a key.
+Bike starts with a button.
+Vehicle stopped.</pre
+          >
+          <button id="runDemo" class="btn primary-btn">Show Output ▶</button>
+        </div>
+      </section>
+
+      <section class="section comparison-section">
+        <p class="eyebrow">04 — KNOW THE DIFFERENCE</p>
+        <h2 class="section-title">Abstract Class vs Interface</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Abstract class</th>
+                <th>Interface</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Keyword</td>
+                <td>abstract class</td>
+                <td>interface</td>
+              </tr>
+              <tr>
+                <td>Methods</td>
+                <td>Abstract and concrete</td>
+                <td>Abstract, default, static and private methods</td>
+              </tr>
+              <tr>
+                <td>Fields</td>
+                <td>Instance and static fields</td>
+                <td>Constants (public static final)</td>
+              </tr>
+              <tr>
+                <td>Inheritance</td>
+                <td>A class extends one class</td>
+                <td>A class can implement multiple interfaces</td>
+              </tr>
+              <tr>
+                <td>Constructor</td>
+                <td>Can have a constructor</td>
+                <td>Cannot have a constructor</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section quiz-section" id="quiz">
+        <p class="eyebrow">05 — TEST YOUR KNOWLEDGE</p>
+        <h2 class="section-title">Quick Knowledge Check</h2>
+        <div class="quiz-card">
+          <p class="question-count">QUESTION 01 / 03</p>
+          <h3 id="question">
+            Which keyword is used to declare an abstract class in Java?
+          </h3>
+          <div id="options" class="options">
+            <button class="option" data-answer="false">A. private</button>
+            <button class="option" data-answer="true">B. abstract</button>
+            <button class="option" data-answer="false">C. static</button>
+            <button class="option" data-answer="false">D. final</button>
+          </div>
+          <p id="feedback" aria-live="polite"></p>
+          <button id="nextQuestion" class="btn primary-btn" hidden>
+            Next Question →
+          </button>
+          <p id="score" class="score"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a href="#" class="logo">JAVA<span>.</span>LAB</a>
+      <p>Learn the concept. Understand the code. Build your future.</p>
+      <p class="copyright">Java OOP Learning Project · Abstraction</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
